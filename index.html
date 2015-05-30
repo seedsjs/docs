@@ -40,6 +40,9 @@
           <a href="#generate-command">Generate Command</a>
       </li>
       <li>
+          <a href="#version-command">Version Command</a>
+      </li>
+      <li>
           <a href="#todo">TODO</a>
       </li>
 		</ul>
@@ -114,7 +117,7 @@ Frontend Server started on port 4200
 					</div>
 				</div>
 			</div>
-			<div class="method" id="generate-command">
+      <div class="method" id="generate-command">
         <div class="method-section clearfix">
           <div class="method-description">
             <h3>Generate Command</h3>
@@ -207,6 +210,24 @@ $ seeds generate scaffold user firstName:string lastName:string email:string age
           </div>
         </div>
       </div>
+			<div class="method" id="version-command">
+        <div class="method-section clearfix">
+          <div class="method-description">
+            <h3>Version Command</h3>
+            <p>
+              Prints the version number of the currently installed Seeds CLI tool.
+            </p>
+          </div>
+          <div class="method-example">
+<pre>
+<code class="ruby">
+$ seeds version
+Seeds v1.5.1
+</code>
+</pre>
+          </div>
+        </div>
+      </div>
 			<div class="method" id="todo">
 				<div class="method-section clearfix">
 					<div class="method-description">
@@ -228,7 +249,7 @@ $ seeds generate scaffold user firstName:string lastName:string email:string age
                   </li>
                   <li>[x] Remove DS.FixtureAdapter on generate - The API is created already so Fixtures are redundant.</li>
                   <li>[x] save-model-mixin should only get generated once. If it exists, don&#8217;t overwrite it.</li>
-                  <li>[] Form partial should use the type of attribute to decide what type of input to use.</li>
+                  <li>[ ] Form partial should use the type of attribute to decide what type of input to use.</li>
                 </ul>
               </div>
             </div>
@@ -239,9 +260,8 @@ $ seeds generate scaffold user firstName:string lastName:string email:string age
 
               <div class="field clearfix">
                 <ul>
-                  <li>[] Optional Names and shortcuts <code>seeds s</code> <code>seeds plant</code></li>
-                  <li>[] Pipe output of servers appended with tag (fe/api) on each line to console.</li>
-                  <li>[] (maybe) On server up open browser to localhost:4200</li>
+                  <li>[ ] Optional Names and shortcuts <code>seeds s</code> <code>seeds plant</code></li>
+                  <li>[ ] (maybe) On server up open browser to localhost:4200</li>
                 </ul>
               </div>
 
@@ -252,7 +272,8 @@ $ seeds generate scaffold user firstName:string lastName:string email:string age
 
               <div class="field clearfix">
                 <ul>
-                  <li>[] Pipe output of servers appended with tag (fe/api) on each line to console.</p></li>
+                  <li>[x] Better Console Output.</li>
+                  <li>[ ] Refactor Sails/Ember commands into their own module</li>
                 </ul>
               </div>
             </div>
@@ -262,11 +283,8 @@ $ seeds generate scaffold user firstName:string lastName:string email:string age
 
               <div class="field clearfix">
                 <ul>
-                  <li>[] commands should extend from a base command class to get access to .option, .flag, etc.. helper methods for commands.</li>
-                  <li>[] Better Logger (Winston?)
-                    <ul>
-                      <li>https://github.com/winstonjs/winston</li>
-                    </ul>
+                  <li>[ ] commands should extend from a base command class to get access to .option, .flag, etc.. helper methods for commands.</li>
+                  <li>[x] Better Logger
                   </li>
                 </ul>
               </div>
@@ -278,9 +296,9 @@ $ seeds generate scaffold user firstName:string lastName:string email:string age
 
               <div class="field clearfix">
                 <ul>
-                  <li>[] Add gulp or broccoli (or brunch or mimosa or etc) buildtool</li>
-                  <li>[] Add notify hooks for events like serve, generate, and errors</li>
-                  <li>[] Possibly transpile to ES5 so we can be run on any node install</li>
+                  <li>[ ] Add gulp or broccoli (or brunch or mimosa or etc) buildtool</li>
+                  <li>[ ] Add notify hooks for events like serve, generate, and errors</li>
+                  <li>[ ] Possibly transpile to ES5 so we can be run on any node install</li>
                   <li>
                     [x] Release tool - possibly build docs for gh page too
                     <ul>
@@ -295,7 +313,7 @@ $ seeds generate scaffold user firstName:string lastName:string email:string age
               <h4>Deploy</h4>
               <div class="field clearfix">
                 <ul>
-                  <li>[] Ship
+                  <li>[ ] Ship
 
                     <ul>
                       <li>Push up Pod and PM2/Bootstrap iojs</li>
