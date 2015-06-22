@@ -27,23 +27,23 @@
 			<a href="index.html">Seeds</a>
 		</h1>
 		<ul class="menu nav">
-            <li>
-			  	<a href="#intro">Introduction</a>
+      <li>
+		  	<a href="#intro">Introduction</a>
 			</li>
       <li>
-          <a href="#new-command">New Command</a>
+        <a href="#new-command">New Command</a>
       </li>
       <li>
-          <a href="#serve-command">Serve Command</a>
+        <a href="#serve-command">Serve Command</a>
       </li>
       <li>
-          <a href="#generate-command">Generate Command</a>
+        <a href="#generate-command">Generate Command</a>
       </li>
       <li>
-          <a href="#version-command">Version Command</a>
+        <a href="#version-command">Version Command</a>
       </li>
       <li>
-          <a href="#todo">TODO</a>
+        <a href="#notes">Notes</a>
       </li>
 		</ul>
 	</div>
@@ -58,13 +58,17 @@
           <div class="method-description">
             <h3>Introduction</h3>
             <p>
-              Seeds is a full-stack JavaScript framework utilizing Ember/Ember-Data, Sails, and Semantic-UI. It currently requires io.js 2+ as it was built on the Soil Cli framework which uses the ES6 Class syntax.
+              Seeds is a full-stack JavaScript framework utilizing Ember/Ember-Data, Sails, and Semantic-UI. <del>It currently requires io.js 2+</del> It has been tested on node v0.12.0+ and io.js 2+. It was built with the <a href="https://github.com/terminalvelocity/soil-cli">Soil Cli</a> framework, a tool for building CLI tools with the ES6 syntax. Seeds uses babel to transpile into ES5.
             </p>
             <p>
-              If you've already got io.js installed all you need to do to download Seeds is to install it with NPM.
+              If you've already got io.js or node installed all you need to do to download Seeds is to install it globally via NPM.
             </p>
             <p>
-              If you don't have io.js installed I'd recommend using <a href="https://github.com/creationix/nvm">NVM</a> to handle your io.js/node installations.
+              If you don't have io.js or node installed we recommend using <a href="https://github.com/creationix/nvm">NVM</a> to handle your io.js/node installations.
+            </p>
+            <p>
+              <span class="bold">Chat with us on</span>
+              <a href="https://gitter.im/terminalvelocity/seeds.js"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Chat with us on http://gitter.im/terminalvelocity/seeds.js"></a>
             </p>
           </div>
           <div class="method-example">
@@ -82,18 +86,74 @@ $ npm install -g seeds</code>
           <div class="method-description">
             <h3>New Command</h3>
             <p>
-              Generates and bootstraps a new seeds application.
+              Generates and bootstraps a new seeds application. The new command requires an appName to be passed as an argument.
             </p>
             <p>
-              Requires App Name passed as an argument.
+              <span class="bold">Aliases for New Command:</span>
+              n
             </p>
+            <div class="info">
+              <h4>Default Seeds Application Structure</h4>
+
+              <div class="field clearfix">
+                <div class="key">frontend</div>
+                  <div class="desc">Ember Application</div>
+              </div>
+              <div class="field clearfix">
+                <div class="key">api</div>
+                  <div class="desc">Sails API Server</div>
+              </div>
+              <div class="field clearfix">
+                <div class="key">.seedsrc</div>
+                  <div class="desc">Seeds configuration file</div>
+              </div>
+              <div class="field clearfix">
+                <div class="key">package.json</div>
+                  <div class="desc">NPM package file for dependency management</div>
+              </div>
+              <div class="field clearfix">
+                <div class="key">node_modules</div>
+                  <div class="desc">Dependencies from NPM. Includes helpers for generating and managing your seeds application</div>
+              </div>
+            </div>
           </div>
           <div class="method-example">
 <pre>
 <code class="ruby"># App name should be passed in camelCased.
 # The new command currently takes a little while.
 
-$ seeds new appName </code>
+$ seeds new appName
+
+Generating a new Seed named appName...
+                                                       .
+                                            .         ;
+               .              .              ;%     ;;
+                 ,           ,                :;%  %;
+                  :         ;                   :;%;'     .,
+          .       %;     %;            ;        %;'    ,;
+           ;       ;%;  %%;        ,     %;    ;%;    ,%'
+            %;       %;%;      ,  ;       %;  ;%;   ,%;'
+             ;%;      %;        ;%;        % ;%;  ,%;'
+              `%;.     ;%;     %;'         `;%%;.%;'
+               `:;%.    ;%%. %@;        %; ;@%;%'
+                  `:%;.  :;bd%;          %;@%;'
+                    `@%:.  :;%.         ;@@%;'
+                      `@%.  `;@%.      ;@@%;
+                        `@%%. `@%%    ;@@%;
+                          ;@%. :@%%  %@@%;
+                            %@bd%%%bd%%:;
+                              #@%%%%%:;;
+                              %@@%%%::;
+                              %@@@%(o);  . '
+                              %@@@o%;:(.,'
+                          `.. %@@@o%::;
+                             `)@@@o%::;
+                              %@@(o)::;
+                             .%@@@@%::;
+                             ;%@@@@%::;.
+                            ;%@@@@%%:;;;.
+                       ....;%@@@@@%%:;;;;,..
+</code>
 </pre>
           </div>
         </div>
@@ -105,11 +165,15 @@ $ seeds new appName </code>
 						<p>
 							Starts the Ember Frontend server at http://localhost:4200 and the Sails API server at http://localhost:1776
 						</p>
+            <p>
+              <span class="bold">Aliases for Serve command:</span><br>
+              s, up, lift, server
+            </p>
 					</div>
 					<div class="method-example">
 <pre>
 <code class="ruby">
-$ seeds serve
+$ seeds s
 API Server started on port 1776
 Frontend Server started on port 4200
 </code>
@@ -123,19 +187,19 @@ Frontend Server started on port 4200
             <h3>Generate Command</h3>
             <p>
               Generates files based on type of generator passed as a parameter. Some generators accept additional arguments. Controllers will accept actions to be generated on the controller
-              and Model/Scaffold generators accept attributes for the model in the form of paramname:paramtype.
+              and Model/Scaffold generators accept attributes for the model in the form of <span class="bold">paramName</span>:<span class="bold">paramType.</span>
             </p>
             <p>
-              The generator types that are currently implemented: Scaffold
+              <span class="bold">Alias for Generate Command</span>: <br>
+              g
+            </p>
+            <p>
+              Currently implemented generators: <span class="bold">Scaffold</span>
             </p>
             <h3>Scaffold</h3>
             <div class="info">
               <h4>Files Generated By Scaffold</h4>
 
-              <div class="field clearfix">
-                <div class="key">Mixins</div>
-                <div class="desc">frontend/app/mixins/save-model-mixin.js</div>
-              </div>
               <div class="field clearfix">
                 <div class="key">Adapters</div>
                   <div class="desc">frontend/app/adapters/user.js</div>
@@ -164,7 +228,8 @@ Frontend Server started on port 4200
                   <div class="desc">frontend/app/templates/users/index.hbs</div>
                   <div class="desc">frontend/app/templates/users/new.hbs</div>
                   <div class="desc">frontend/app/templates/users/show.hbs</div>
-              </div>              <div class="field clearfix">
+              </div>
+              <div class="field clearfix">
                 <div class="key">Tests</div>
                   <div class="desc">tests/acceptance/users-test.js</div>
               </div>
@@ -175,7 +240,7 @@ Frontend Server started on port 4200
 <code class="ruby"># Model name should be passed in its singular form.
 # Multi-Word Attributes should be passed in camelCased.
 
-$ seeds generate scaffold user firstName:string lastName:string email:string age:number subscribed:boolean verified:boolean
+$ seeds g scaffold user firstName:string lastName:string email:string apiKey:string age:number subscribed:boolean verified:boolean
 </code>
 <code class="ruby always-visible">
 # Also wires up the appropriate routes in
@@ -217,124 +282,36 @@ $ seeds generate scaffold user firstName:string lastName:string email:string age
             <p>
               Prints the version number of the currently installed Seeds CLI tool.
             </p>
+            <p>
+              <span class="bold">Aliases for Version command:</span><br>
+              -v
+            </p>
           </div>
           <div class="method-example">
 <pre>
 <code class="ruby">
 $ seeds version
-Seeds v1.5.1
+Seeds v2.0.0
 </code>
 </pre>
           </div>
         </div>
       </div>
-			<div class="method" id="todo">
+			<div class="method" id="notes">
 				<div class="method-section clearfix">
 					<div class="method-description">
-            <h3>TODO</h3>
-
-            <div class="info">
-
-              <h4>Generate Command</h4>
-
-              <div class="field clearfix">
-                <ul>
-                  <li>
-                    [x] Generate scaffold should generate the root resource route
-                    <ul>
-                      <li>
-                        ie. seeds generate scaffold user should generate templates/users.hbs with a .ui.row&gt;.ui.segment
-                      </li>
-                    </ul>
-                  </li>
-                  <li>[x] Remove DS.FixtureAdapter on generate - The API is created already so Fixtures are redundant.</li>
-                  <li>[x] save-model-mixin should only get generated once. If it exists, don&#8217;t overwrite it.</li>
-                  <li>[ ] Form partial should use the type of attribute to decide what type of input to use.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="info">
-
-              <h4>Server Command</h4>
-
-              <div class="field clearfix">
-                <ul>
-                  <li>[ ] Optional Names and shortcuts <code>seeds s</code> <code>seeds plant</code></li>
-                  <li>[ ] (maybe) On server up open browser to localhost:4200</li>
-                </ul>
-              </div>
-
-            </div>
-            <div class="info">
-
-              <h4>New Command</h4>
-
-              <div class="field clearfix">
-                <ul>
-                  <li>[x] Better Console Output.</li>
-                  <li>[ ] Refactor Sails/Ember commands into their own module</li>
-                </ul>
-              </div>
-            </div>
-            <div class="info">
-
-              <h4>Soil Cli</h4>
-
-              <div class="field clearfix">
-                <ul>
-                  <li>[ ] commands should extend from a base command class to get access to .option, .flag, etc.. helper methods for commands.</li>
-                  <li>[x] Better Logger
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="info">
-
-              <h4>Seeds General</h4>
-
-              <div class="field clearfix">
-                <ul>
-                  <li>[ ] Add gulp or broccoli (or brunch or mimosa or etc) buildtool</li>
-                  <li>[ ] Add notify hooks for events like serve, generate, and errors</li>
-                  <li>[ ] Possibly transpile to ES5 so we can be run on any node install</li>
-                  <li>
-                    [x] Release tool - possibly build docs for gh page too
-                    <ul>
-                      <li>Using xyz for now due to simplicity of setup</li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="info">
-              <h4>Deploy</h4>
-              <div class="field clearfix">
-                <ul>
-                  <li>[ ] Ship
-
-                    <ul>
-                      <li>Push up Pod and PM2/Bootstrap iojs</li>
-                      <li>Build ember app, cp to sails assets</li>
-                      <li>Add repo and git push deploy</li>
-                      <li>Spawn server on pm2 process</li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <h3>Notes</h3>
+            <p>
+              If you run across a bug please <a href="https://github.com/terminalvelocity/seeds.js/issues">file an issue</a>. <br>
+              If you need help come chat with us on <a href="https://gitter.im/terminalvelocity/seeds.js">Gitter</a>. <br>
+              If you want to contribute, check out the <a href="https://github.com/terminalvelocity/seeds.js">Github Repo</a>
+            </p>
 					</div>
 					<div class="method-example">
 <pre>
 <code class="http always-visible">Built with <a href="https://github.com/terminalvelocity/soil-cli">Soil Cli</a>.
 Created by John-Henry Liberty
 <a href="https://twitter.com/jhliberty">(Twitter)</a> <a href="https://github.com/jhliberty">(GitHub)</a>
-
-
-If you run across an bug please <a href="https://github.com/terminalvelocity/seeds.js/issues">file an issue</a>.
-<a href="https://github.com/terminalvelocity/seeds.js">Github Repo</a>. Chat with us on <a href="https://gitter.im/terminalvelocity/seeds.js">Gitter</a>.
 </code>
 </pre>
 					</div>

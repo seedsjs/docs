@@ -7307,3 +7307,6 @@ body {
     #email-templates .emails .email img {
       max-height: 345px;
       cursor: pointer; }
+.bold {
+  font-weight: bold;
+}
