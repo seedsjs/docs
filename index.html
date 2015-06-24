@@ -40,6 +40,9 @@
         <a href="#generate-command">Generate Command</a>
       </li>
       <li>
+        <a href="#install-command">Install Command</a>
+      </li>
+      <li>
         <a href="#version-command">Version Command</a>
       </li>
       <li>
@@ -271,6 +274,31 @@ $ seeds g scaffold user firstName:string lastName:string email:string apiKey:str
   "verified": true
 }
 </code>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div class="method" id="install-command">
+        <div class="method-section clearfix">
+          <div class="method-description">
+            <h3>Install Command</h3>
+            <p>
+              Installs a package into your Ember frontend or your Sails backend.
+            </p>
+            <p>
+              <span class="bold">Alias for Install command:</span><br>
+              i
+            </p>
+          </div>
+          <div class="method-example">
+<pre>
+<code class="ruby">$ seeds install ember ember-moment
+Installing ember-moment into frontend...
+Installation complete!</code>
+
+<code class="ruby">$ seeds i sails sails-mandrill
+Installing sails-mandrill into api...
+Installation complete!</code>
 </pre>
           </div>
         </div>
