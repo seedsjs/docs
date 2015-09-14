@@ -249,7 +249,7 @@ $ seeds g scaffold user firstName:string lastName:string email:string apiKey:str
 # Also wires up the appropriate routes in
 # frontend/app/router.js
 
-  this.resource("users", function() {
+  this.route("users", function() {
     this.route("new");
 
     this.route("edit", {
@@ -319,7 +319,7 @@ Installation complete!</code>
 <pre>
 <code class="ruby">
 $ seeds version
-Seeds v2.0.1
+Seeds v2.0.3
 </code>
 </pre>
           </div>
