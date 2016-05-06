@@ -5390,7 +5390,7 @@ body {
         padding: 5px 0 5px 20px;
         background: #3B4249;
         box-shadow: 2px 1px 3px #000;
-        z-index: 999; }
+        z-index: 1; }
         #docs #api-docs #methods .languages .language {
           display: inline-block;
           color: #C0CEDD;
